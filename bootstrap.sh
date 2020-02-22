@@ -13,13 +13,13 @@ cli_tools=(
 
 # Install GUI tools
 gui_tools=(
-	spotify
-	kitty
-	brave-browser
-	tweetbot
-	1password
-	ticktick
-	dropbox
+  spotify
+  kitty
+  brave-browser
+  tweetbot
+  1password
+  ticktick
+  dropbox
 )
 
 ########################
