@@ -20,6 +20,7 @@ gui_tools=(
   1password
   ticktick
   dropbox
+  spectacle
 )
 
 ########################
