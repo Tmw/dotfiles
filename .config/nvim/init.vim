@@ -25,6 +25,9 @@ Plug 'slashmili/alchemist.vim'
 Plug 'mhinz/vim-mix-format'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
+" Lanuage support ~ GraphQL
+Plug 'jparise/vim-graphql'
+
 " Language support ~ Front-End
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier', {
