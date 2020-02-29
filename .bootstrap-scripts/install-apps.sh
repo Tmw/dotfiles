@@ -15,6 +15,7 @@ cli_tools=(
   docker
   pgcli
   telnet
+  asdf
 )
 
 # Install GUI tools
