@@ -1,57 +1,28 @@
-# Install cli tools
-cli_tools=(
-  jq
-  git
-  git-lfs
-  ack
-  zsh
-  zsh-completions
-  neovim
-  awscli
-  docker
-  pgcli
-  telnet
-)
-
-# Install GUI tools
-gui_tools=(
-  spotify
-  kitty
-  brave-browser
-  tweetbot
-  1password
-  ticktick
-  dropbox
-  spectacle
-)
-
 ########################
-###### INTERNALS #######
-########################
+# Bootstrap script
+#
+# Will install homebrew to start with and then clone my dotfiles directory
+# for further installation and configuration.
+#
 
-# Install homebrew if not already exist.
+# Switch to home directory
+cd $HOME
+
+# request sudo password upfront and keep the sudo session alive
+sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# Then; install Homebrew if not already exist.
 if ! [ -x "$(command -v brew)" ]; then
   echo "No Homebrew found; Installing homebrew first"
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
-  echo "Already have Homebrew; skipping.."
+  echo "Already have Homebrew; continuing.."
 fi
 
+# checkout rest of dotfiles repo before continuing
+git clone --bare https://github.com/tmw/dotfiles.git $HOME/.dotfiles
 
-# First update homebrew
-brew update
+# And then install apps and fonts
+./.bootstrap-scripts/install-apps.sh
 
-# Iterate over the list of essential CLI tools
-# and install them one-by-one using Homebrew
-for tool in ${cli_tools[@]}; do
-  brew install "$tool"
-done
-
-# Git needs to be configured to use LFS too..
-git lfs install
-
-# Now; iterate over all the GUI tools and
-# instal them one-by-one too!
-for tool in ${gui_tools[@]}; do
-  brew cask install "$tool" --no-quarantine
-done
