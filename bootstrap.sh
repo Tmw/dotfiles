@@ -23,6 +23,9 @@ fi
 # checkout rest of dotfiles repo before continuing
 git clone --bare https://github.com/tmw/dotfiles.git $HOME/.dotfiles
 
+# set alias and checkout contents of dotfiles
+/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout
+
 # And then install apps and fonts
 ./.bootstrap-scripts/install-apps.sh
 

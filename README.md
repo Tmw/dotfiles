@@ -3,7 +3,7 @@
 Getting started on a new machine is as simple as copy-pasting the following command in your terminal.
 
 ```bash
-  bash -c $(curl -fSsl https://raw.githubusercontent.com/Tmw/dotfiles/master/bootstrap.sh)
+  bash -c "$(curl -fSsl https://raw.githubusercontent.com/Tmw/dotfiles/master/bootstrap.sh)"
 ```
 
 This bashscript will setup homebrew and install a few CLI tools as well
