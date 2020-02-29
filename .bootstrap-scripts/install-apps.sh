@@ -79,7 +79,7 @@ done
 ###########
 
 # Install ohmyzsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Install asdf plugin and then latest version of the given language
 for lang in ${languages[@]}; do
