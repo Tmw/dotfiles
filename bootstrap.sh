@@ -9,6 +9,8 @@ cli_tools=(
   neovim
   awscli
   docker
+  pgcli
+  telnet
 )
 
 # Install GUI tools
