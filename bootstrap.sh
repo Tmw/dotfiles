@@ -29,3 +29,6 @@ git clone --bare https://github.com/tmw/dotfiles.git $HOME/.dotfiles
 # And then install apps and fonts
 ./.bootstrap-scripts/install-apps.sh
 
+# Run the preferences script
+./.bootstrap-scripts/setup-preferences.sh
+
