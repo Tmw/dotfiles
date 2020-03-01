@@ -103,5 +103,8 @@ for lang in ${languages[@]}; do
   asdf global "$lang" $(ls .asdf/installs/"$lang" | head -n 1)
 done
 
+# Some global npm packages
+npm -g install yarn
+
 # cleanup
 brew cleanup
