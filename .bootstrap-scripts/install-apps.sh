@@ -8,7 +8,6 @@ cli_tools=(
   git
   git-lfs
   ack
-  zsh
   zsh-completions
   neovim
   awscli
