@@ -40,7 +40,7 @@ fonts=(
 
 # programming languages
 languages=(
-  node
+  nodejs
   ruby
   golang
   rust
@@ -82,14 +82,21 @@ done
 # Install ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
+# Install vim-plug (plugin manager for vim)
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 # Install asdf plugin and then latest version of the given language
 for lang in ${languages[@]}; do
   asdf plugin-add "$lang"
+
+  if [ "$lang" = 'nodejs' ]; then
+    # node wants some PGP keys to be installed
+    bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+  fi
+
   asdf install "$lang" latest
 done
-
-# setup PGP key for nodejs releases
-bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
 
 # cleanup
 brew cleanup
