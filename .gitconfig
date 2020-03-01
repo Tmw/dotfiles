@@ -1,0 +1,15 @@
+[user]
+	name = Tiemen Waterreus
+	email = tiemen@tiemenwaterreus.com
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+[core]
+  editor = 'nvim'
+  excludesfile = ~/.gitignore
+
+[alias]
+  l = log --oneline --graph -20 --decorate
+
