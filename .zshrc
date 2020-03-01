@@ -2,7 +2,7 @@
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/tiemen/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export EDITOR='/usr/local/bin/nvim'
 export VISUAL="$EDITOR"
 
