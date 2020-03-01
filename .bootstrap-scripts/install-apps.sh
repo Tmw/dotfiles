@@ -32,6 +32,7 @@ gui_tools=(
   whatsapp
   telegram
   postman
+  numi
 )
 
 # Install fonts
