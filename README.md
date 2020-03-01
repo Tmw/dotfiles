@@ -20,3 +20,18 @@ dotfiles add <name-of-dotfile>
 dotfiles commit -m 'what changed'
 dotfiles push origin master
 ```
+
+## Manual setting up
+
+**Inside Brave: install plugins**
+- 1PasswordX
+- Apollo Client Developer Tools
+- React Developer Tools
+- Reeder
+
+**Apps from Mac App Store**
+- Xcode
+- Giphy capture
+- Bear
+- Unsplash Wallpapers
+

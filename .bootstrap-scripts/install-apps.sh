@@ -28,6 +28,10 @@ gui_tools=(
   dropbox
   spectacle
   docker
+  graphiql
+  whatsapp
+  telegram
+  postman
 )
 
 # Install fonts
