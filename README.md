@@ -35,3 +35,7 @@ dotfiles push origin master
 - Bear
 - Unsplash Wallpapers
 
+**Keypairs & Configs**
+- Keypair lives in 1Password (Public Keys). Need to go in `~/.ssh`
+- AWS configs live in 1Password (AWS Config). Need to go in `~/.aws`
+
