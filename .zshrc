@@ -12,6 +12,7 @@ ZSH_THEME="robbyrussell"
 plugins=(
   asdf
   docker
+  git
 )
 
 # load oh-my-zsh, its plugins and completions
