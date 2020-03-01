@@ -43,12 +43,17 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Disable warning when changing file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-
 ###########
 # Locales #
 ###########
 defaults write NSGlobalDomain AppleLocale -string "en_NL"
 defaults write NSGlobalDomain AppleLanguages -array "en-US" "nl-NL"
+
+########
+# Misc #
+########
+# Enable font smoothing on non-Retina displays
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
 
 # Kill (restart) all affected applications
 for app in "Dock" "Finder" "SystemUIServer"; do
