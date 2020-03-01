@@ -8,13 +8,16 @@ mkdir ~/Development
 ##################
 
 # Set dock icon size
-defaults write com.apple.dock tilesize -int 32
+#defaults write com.apple.dock tilesize -int 32
 
 # Hide recents section in dock
-defaults write com.apple.dock show-recents -bool false
+#defaults write com.apple.dock show-recents -bool false
 
 # Don’t automatically rearrange Spaces based on most recent use
-defaults write com.apple.dock mru-spaces -bool false
+#defaults write com.apple.dock mru-spaces -bool false
+
+# Overide settings file
+mv $HOME/.bootstrap-scripts/assets/com.apple.dock.plist ~/Library/Preferences
 
 ############
 # Keyboard #
