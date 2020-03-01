@@ -88,14 +88,19 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 # Install asdf plugin and then latest version of the given language
 for lang in ${languages[@]}; do
+  # add the plugin for that language
   asdf plugin-add "$lang"
 
   if [ "$lang" = 'nodejs' ]; then
-    # node wants some PGP keys to be installed
+    # node wants some GPG keys to be installed
     bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
   fi
 
+  # install the latest version of the language
   asdf install "$lang" latest
+
+  # and mark that version of the language as the one globally used
+  asdf global "$lang" $(ls .asdf/installs/"$lang" | head -n 1)
 done
 
 # cleanup
