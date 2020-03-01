@@ -36,6 +36,7 @@ fonts=(
   font-fira-code
   font-fira-mono
   font-fira-sans
+  font-hack-nerd-font
 )
 
 # programming languages
