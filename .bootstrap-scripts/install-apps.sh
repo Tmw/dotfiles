@@ -33,6 +33,7 @@ gui_tools=(
   telegram
   postman
   numi
+  charles
 )
 
 # Install fonts
