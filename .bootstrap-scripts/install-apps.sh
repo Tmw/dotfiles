@@ -34,6 +34,7 @@ gui_tools=(
   postman
   numi
   charles
+  slack
 )
 
 # Install fonts
