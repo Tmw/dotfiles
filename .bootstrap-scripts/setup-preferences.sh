@@ -17,7 +17,7 @@ mkdir ~/Development
 #defaults write com.apple.dock mru-spaces -bool false
 
 # Overide settings file
-mv $HOME/.bootstrap-scripts/assets/com.apple.dock.plist ~/Library/Preferences
+cp $HOME/.bootstrap-scripts/assets/com.apple.dock.plist ~/Library/Preferences
 
 ############
 # Keyboard #
@@ -30,8 +30,8 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 ############
 # Trackpad #
 ############
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 
 ##########
 # Finder #

@@ -35,6 +35,7 @@ gui_tools=(
   numi
   charles
   graphql-playground
+  slack
 )
 
 # Install fonts

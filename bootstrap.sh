@@ -23,11 +23,20 @@ fi
 # checkout rest of dotfiles repo before continuing
 git clone --bare https://github.com/tmw/dotfiles.git $HOME/.dotfiles
 
-# set alias and checkout contents of dotfiles
-/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout
+# set (temporary alias) to work with the dotfiles repo
+alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# configure dotfiles repo to ignore untracked files
+dotfiles config --local status.showUntrackedFiles no
 
 # And then install apps and fonts
 ./.bootstrap-scripts/install-apps.sh
+
+# Only checkout dotfiles after installing the apps to ensure we dont
+# override settings files back to defaults after installing.
+dotfiles fetch --all
+dotfiles reset --hard origin/abranch
+dotfiles checkout $branch
 
 # Run the preferences script
 ./.bootstrap-scripts/setup-preferences.sh
