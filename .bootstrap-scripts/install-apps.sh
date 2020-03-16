@@ -14,6 +14,8 @@ cli_tools=(
   docker
   pgcli
   telnet
+  terraform
+  ansible
   asdf
 )
 
