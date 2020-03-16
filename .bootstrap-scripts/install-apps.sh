@@ -34,6 +34,7 @@ gui_tools=(
   postman
   numi
   charles
+  graphql-playground
   slack
   zoomus
 )
