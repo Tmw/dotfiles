@@ -35,6 +35,7 @@ gui_tools=(
   numi
   charles
   slack
+  zoomus
 )
 
 # Install fonts
