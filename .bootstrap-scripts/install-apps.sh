@@ -17,6 +17,7 @@ cli_tools=(
   terraform
   ansible
   asdf
+  watch
 )
 
 # Install GUI tools
