@@ -9,11 +9,7 @@ export VISUAL="$EDITOR"
 ZSH_THEME="robbyrussell"
 
 # zsh plugins
-plugins=(
-  asdf
-  docker
-  git
-)
+plugins=(git)
 
 # load oh-my-zsh, its plugins and completions
 source $ZSH/oh-my-zsh.sh
