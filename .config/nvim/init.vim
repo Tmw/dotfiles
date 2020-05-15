@@ -104,3 +104,6 @@ let g:mix_format_on_save = 1
 " JS/TS preferences
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
+" Quick copy filepath to clipboard
+nnor ,cf :let @*=expand("%:p")<CR>
