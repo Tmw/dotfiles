@@ -18,6 +18,7 @@ cli_tools=(
   ansible
   asdf
   watch
+  watchman
 )
 
 # Install GUI tools
