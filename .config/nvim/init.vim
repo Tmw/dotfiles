@@ -37,6 +37,9 @@ Plug 'prettier/vim-prettier', {
 
 Plug 'maxmellon/vim-jsx-pretty'
 
+" coc extensions
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-elixir']
+
 
 " Initialize plugin system
 call plug#end()
@@ -101,9 +104,17 @@ set t_Co=256
 let g:mix_format_on_save = 1
 " let g:alchemist_tag_disable = 1 " Disable jumping to definitions until it works
 
+" Limit searchspace for ctrl+p
+let g:ctrlp_user_command =
+  \ ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
 " JS/TS preferences
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " Quick copy filepath to clipboard
 nnor ,cf :let @*=expand("%:p")<CR>
+
+" mark typescript and tsx files accordingly
+au BufNewFile,BufRead *.ts setlocal filetype=typescript
+au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
