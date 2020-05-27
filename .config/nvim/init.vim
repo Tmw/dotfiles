@@ -7,13 +7,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
+Plug 'thaerkh/vim-indentguides'
 Plug 'mileszs/ack.vim'
 
 " Theming
@@ -65,12 +66,25 @@ set wildmode=longest:full,full
 set tags=tags
 set number relativenumber
 set expandtab
+set list
+set listchars=tab:!·,trail:·
 set mouse=a " Some mouse is ok.
 set ignorecase
 
 " NERDTree preferences
+" ---------------------
+"
+" How do we toggle NerdTree
 nmap <C-b> :NERDTreeToggle<CR>
+
+" Hide by default
 let NERDTreeShowHidden=1
+
+" Adjust bindings to match FZF: ctrl+x, ctrl+v for horizontal / vertical
+" splits and ctrl+t for new tab
+let NERDTreeMapOpenSplit='<C-X>'
+let NERDTreeMapOpenVSplit='<C-V>'
+let NERDTreeMapOpenInTab='<C-T>'
 
 " This supposedly hides the brackets in NERDTree
 if exists('g:loaded_webdevicons')
@@ -82,13 +96,15 @@ let g:NERDToggleCheckAllLines = 1
 nmap <C-_>   <Plug>NERDCommenterToggle
 vmap <C-_>   <Plug>NERDCommenterToggle<CR>gv
 
-" Moving between splits
+" Movements between splits
+" ------------------------
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 
 " Making splits
+" ------------------------
  set splitbelow
  set splitright
 
@@ -102,11 +118,9 @@ set t_Co=256
 
 " Elixir preferences
 let g:mix_format_on_save = 1
-" let g:alchemist_tag_disable = 1 " Disable jumping to definitions until it works
 
 " Limit searchspace for ctrl+p
-let g:ctrlp_user_command =
-  \ ['.git', 'cd %s && git ls-files -co --exclude-standard']
+nnoremap <silent> <C-p> :GFiles<CR>
 
 " JS/TS preferences
 let g:prettier#autoformat = 0
