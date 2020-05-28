@@ -14,7 +14,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'thaerkh/vim-indentguides'
 Plug 'mileszs/ack.vim'
 
 " Theming
