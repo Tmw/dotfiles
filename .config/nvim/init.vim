@@ -30,15 +30,10 @@ Plug 'jparise/vim-graphql'
 
 " Language support ~ Front-End
 Plug 'pangloss/vim-javascript'
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json',
-  \ 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-
 Plug 'maxmellon/vim-jsx-pretty'
 
 " coc extensions
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-elixir']
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-elixir', 'coc-eslint']
 
 
 " Initialize plugin system
@@ -120,10 +115,6 @@ let g:mix_format_on_save = 1
 
 " Limit searchspace for ctrl+p
 nnoremap <silent> <C-p> :GFiles<CR>
-
-" JS/TS preferences
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " Quick copy filepath to clipboard
 nnor ,cf :let @*=expand("%:p")<CR>
