@@ -30,6 +30,3 @@ export LC_ALL=en_US.UTF-8
 
 # load asdf shims
 source /usr/local/opt/asdf/asdf.sh
-
-# Start off in the development directory
-cd ~/Development
