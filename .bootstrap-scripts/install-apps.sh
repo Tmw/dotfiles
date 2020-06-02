@@ -19,6 +19,7 @@ cli_tools=(
   asdf
   watch
   watchman
+  fd
 )
 
 # Install GUI tools

@@ -5,6 +5,7 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR='/usr/local/bin/nvim'
 export VISUAL="$EDITOR"
+export FZF_DEFAULT_COMMAND='fd --type f'
 
 ZSH_THEME="robbyrussell"
 

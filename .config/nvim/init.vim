@@ -113,8 +113,8 @@ set t_Co=256
 " Elixir preferences
 let g:mix_format_on_save = 1
 
-" Limit searchspace for ctrl+p
-nnoremap <silent> <C-p> :GFiles<CR>
+" Remap CTRL+P to fzf.vim
+nnoremap <silent> <C-p> :Files<CR>
 
 " Quick copy filepath to clipboard
 nnor ,cf :let @*=expand("%:p")<CR>
