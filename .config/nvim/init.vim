@@ -30,6 +30,7 @@ Plug 'jparise/vim-graphql'
 
 " Language support ~ Front-End
 Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 
 " coc extensions
