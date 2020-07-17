@@ -7,6 +7,14 @@ export EDITOR='/usr/local/bin/nvim'
 export VISUAL="$EDITOR"
 export FZF_DEFAULT_COMMAND='fd --type f'
 
+# android studio requirements (RN)
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
+
 ZSH_THEME="robbyrussell"
 
 # zsh plugins
