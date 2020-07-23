@@ -14,7 +14,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'mileszs/ack.vim'
+Plug 'mhinz/vim-grepper'
 
 " Theming
 Plug 'morhetz/gruvbox'
