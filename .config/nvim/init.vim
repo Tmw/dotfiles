@@ -15,6 +15,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'mhinz/vim-grepper'
+Plug 'yssl/QFEnter'
 
 " Theming
 Plug 'morhetz/gruvbox'
@@ -23,6 +24,8 @@ Plug 'morhetz/gruvbox'
 Plug 'elixir-editors/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 Plug 'mhinz/vim-mix-format'
+
+" Language support ~ Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 " Lanuage support ~ GraphQL
@@ -35,7 +38,6 @@ Plug 'maxmellon/vim-jsx-pretty'
 
 " coc extensions
 let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-elixir', 'coc-eslint']
-
 
 " Initialize plugin system
 call plug#end()
@@ -102,6 +104,14 @@ nnoremap <C-K> <C-W><C-K>
 " ------------------------
  set splitbelow
  set splitright
+
+ " Configure QFEnter mappings
+ " How do we open QuickFix items
+let g:qfenter_keymap = {}
+let g:qfenter_keymap.vopen = ['<C-v>']
+let g:qfenter_keymap.hopen = ['<C-CR>', '<C-s>', '<C-x>']
+let g:qfenter_keymap.topen = ['<C-t>']
+
 
  " Mark the 80 chars line
  set colorcolumn=80
