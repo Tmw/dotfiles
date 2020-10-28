@@ -13,3 +13,6 @@
 [alias]
   l = log --oneline --graph -20 --decorate
 
+[diff "localizablestrings"]
+textconv = "iconv -f utf-16 -t utf-8"
+

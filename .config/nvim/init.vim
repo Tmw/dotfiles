@@ -25,6 +25,9 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 Plug 'mhinz/vim-mix-format'
 
+" Language support ~ Rust
+Plug 'rust-lang/rust.vim'
+
 " Language support ~ Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
