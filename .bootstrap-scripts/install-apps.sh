@@ -7,6 +7,7 @@ cli_tools=(
   jq
   git
   git-lfs
+  git-trim
   ack
   zsh-completions
   neovim
