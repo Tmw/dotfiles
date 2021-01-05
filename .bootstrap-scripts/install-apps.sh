@@ -43,6 +43,7 @@ gui_tools=(
   graphql-playground
   slack
   zoomus
+  rustup
 )
 
 # Install fonts
@@ -53,7 +54,7 @@ fonts=(
   font-hack-nerd-font
 )
 
-# programming languages
+# programming languages (using asdf)
 languages=(
   nodejs
   ruby
