@@ -20,6 +20,9 @@ Plug 'yssl/QFEnter'
 " Theming
 Plug 'morhetz/gruvbox'
 
+" Language support ~ Ruby
+Plug 'vim-ruby/vim-ruby'
+
 " Language support ~ Elixir
 Plug 'elixir-editors/vim-elixir'
 Plug 'slashmili/alchemist.vim'
