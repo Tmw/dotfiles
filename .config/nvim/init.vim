@@ -31,6 +31,9 @@ Plug 'mhinz/vim-mix-format'
 " Language support ~ Rust
 Plug 'rust-lang/rust.vim'
 
+" Language support ~ Swift
+Plug 'toyamarinyon/vim-swift'
+
 " Language support ~ Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
