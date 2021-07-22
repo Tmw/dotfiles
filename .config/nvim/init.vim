@@ -142,3 +142,7 @@ nnor ,cf :let @*=expand("%:p")<CR>
 " mark typescript and tsx files accordingly
 au BufNewFile,BufRead *.ts setlocal filetype=typescript
 au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
+
+" auto enable spellcheck for markdown and commits
+autocmd FileType markdown setlocal spell
+autocmd FileType gitcommit setlocal spell
