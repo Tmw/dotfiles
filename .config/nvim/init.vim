@@ -149,6 +149,3 @@ au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
 " auto enable spellcheck for markdown and commits
 autocmd FileType markdown setlocal spell
 autocmd FileType gitcommit setlocal spell
-
-" Go wants tabs.
-autocmd FileType go setlocal shiftwidth=2 tabstop=2
