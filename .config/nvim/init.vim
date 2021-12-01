@@ -40,6 +40,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " Lanuage support ~ GraphQL
 Plug 'jparise/vim-graphql'
 
+" Language support ~ Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 " Language support ~ Front-End
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
@@ -122,8 +125,8 @@ let g:qfenter_keymap.hopen = ['<C-CR>', '<C-s>', '<C-x>']
 let g:qfenter_keymap.topen = ['<C-t>']
 
 
- " Mark the 80 chars line
- set colorcolumn=80
+" Mark the 80 chars line
+set colorcolumn=80
 
 " Gruvbox + Powerline
 let g:airline_theme='gruvbox'
@@ -146,3 +149,6 @@ au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
 " auto enable spellcheck for markdown and commits
 autocmd FileType markdown setlocal spell
 autocmd FileType gitcommit setlocal spell
+
+" Go wants tabs.
+autocmd FileType go setlocal shiftwidth=2 tabstop=2
