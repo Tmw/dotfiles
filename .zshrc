@@ -40,5 +40,9 @@ export LC_ALL=en_US.UTF-8
 # load asdf shims
 source /usr/local/opt/asdf/asdf.sh
 
+# set gopath
+export GOPATH=$(go env GOPATH)
+export PATH="$PATH:$(go env GOPATH)/bin"
+
 # load cargo env
 source $HOME/.cargo/env

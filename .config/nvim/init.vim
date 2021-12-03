@@ -41,7 +41,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'jparise/vim-graphql'
 
 " Language support ~ Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+autocmd BufWritePre *.go :silent! call CocAction('format')
 
 " Language support ~ Front-End
 Plug 'pangloss/vim-javascript'
@@ -49,10 +49,12 @@ Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 
 " coc extensions
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-elixir', 'coc-eslint']
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-elixir', 'coc-eslint', 'coc-go']
 
 " Initialize plugin system
 call plug#end()
+
+
 filetype plugin indent on
 
 " Setup theming
@@ -114,8 +116,8 @@ nnoremap <C-K> <C-W><C-K>
 
 " Making splits
 " ------------------------
- set splitbelow
- set splitright
+set splitbelow
+set splitright
 
  " Configure QFEnter mappings
  " How do we open QuickFix items
