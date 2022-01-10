@@ -1,7 +1,14 @@
 filetype off
 
 " Specify a directory for plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
+
+" Neovim language server support
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
@@ -49,11 +56,26 @@ Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 
 " coc extensions
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-elixir', 'coc-eslint', 'coc-go']
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-go']
 
 " Initialize plugin system
 call plug#end()
 
+
+" Configure ElixirLS
+lua << EOF
+require'lspconfig'.elixirls.setup{
+  cmd = { "/Users/tiemen/Development/elixir-ls/release/language_server.sh" };
+}
+
+local cmp = require('cmp')
+cmp.setup({
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'buffer' },
+  })
+})
+EOF
 
 filetype plugin indent on
 
