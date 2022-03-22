@@ -1,5 +1,4 @@
 # If you come from bash you might have to change your $PATH.
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -8,13 +7,6 @@ export VISUAL="$EDITOR"
 export FZF_DEFAULT_COMMAND='fd --type f'
 
 # android studio requirements (RN)
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
-
 ZSH_THEME="robbyrussell"
 
 # zsh plugins
@@ -38,11 +30,11 @@ export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # load asdf shims
-source /usr/local/opt/asdf/asdf.sh
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # set gopath
 export GOPATH=$(go env GOPATH)
 export PATH="$PATH:$(go env GOPATH)/bin"
 
 # load cargo env
-source $HOME/.cargo/env
+# source $HOME/.cargo/env

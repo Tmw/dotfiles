@@ -1,59 +1,3 @@
-# This script will install applications and fonts using homebrew.
-
-# Install cli tools
-cli_tools=(
-  coreutils
-  gpg
-  jq
-  git
-  git-lfs
-  git-trim
-  ack
-  zsh-completions
-  neovim
-  awscli
-  docker
-  pgcli
-  telnet
-  terraform
-  ansible
-  asdf
-  watch
-  watchman
-  fd
-)
-
-# Install GUI tools
-gui_tools=(
-  spotify
-  kitty
-  brave-browser
-  tweetbot
-  1password
-  ticktick
-  dropbox
-  spectacle
-  docker
-  graphiql
-  whatsapp
-  telegram
-  postman
-  numi
-  charles
-  graphql-playground
-  slack
-  zoomus
-  rustup
-)
-
-# Install fonts
-fonts=(
-  font-fira-code
-  font-fira-mono
-  font-fira-sans
-  font-hack-nerd-font
-)
-
 # programming languages (using asdf)
 languages=(
   nodejs
@@ -65,32 +9,8 @@ languages=(
   python
 )
 
-# First update homebrew
-brew update
-
-# Install fonts tap
-brew tap homebrew/cask-fonts
-
-# Iterate over the list of essential CLI tools
-# and install them one-by-one using Homebrew
-for tool in ${cli_tools[@]}; do
-  brew install "$tool"
-done
-
 # Git needs to be configured to use LFS too..
 git lfs install
-
-# Now; iterate over all the GUI tools and
-# instal them one-by-one too!
-for tool in ${gui_tools[@]}; do
-  brew cask install "$tool" --no-quarantine
-done
-
-# Install the font(s) we'll need
-for font in ${fonts[@]}; do
-  brew cask install "$font"
-done
-
 ###########
 # Plugins #
 ###########
