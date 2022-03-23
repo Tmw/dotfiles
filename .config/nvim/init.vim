@@ -8,7 +8,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
-
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
@@ -48,7 +48,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'jparise/vim-graphql'
 
 " Language support ~ Go
-autocmd BufWritePre *.go :silent! call CocAction('format')
+Plug 'ray-x/go.nvim'
+autocmd BufWritePre *.go :silent! lua require('go.format').gofmt()
 
 " Language support ~ Front-End
 Plug 'pangloss/vim-javascript'
@@ -56,17 +57,33 @@ Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 
 " coc extensions
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-go']
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-eslint']
 
 " Initialize plugin system
 call plug#end()
 
 
-" Configure ElixirLS
+" Configure lsp
 lua << EOF
 require'lspconfig'.elixirls.setup{
   cmd = { "/Users/tiemen/Development/elixir-ls/release/language_server.sh" };
 }
+
+-- configure Go
+require 'lspconfig'.gopls.setup{}
+require('go').setup()
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  sync_install = false,
+  ignore_install = { },
+
+  highlight = {
+    enable = true,
+    disable = {},
+    additional_vim_regex_highlighting = false,
+  },
+}
+
 
 local cmp = require('cmp')
 cmp.setup({
