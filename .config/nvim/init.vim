@@ -3,29 +3,34 @@ filetype off
 " Specify a directory for plugins
 call plug#begin('~/.config/nvim/plugged')
 
-" Neovim language server support
+" Neovim language server support and advanced highlighter
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lualine/lualine.nvim'
+
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'mhinz/vim-grepper'
 Plug 'yssl/QFEnter'
 
+Plug 'RRethy/vim-illuminate'
+
 " Theming
 Plug 'morhetz/gruvbox'
+Plug 'folke/tokyonight.nvim'
 
 " Language support ~ Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -49,15 +54,19 @@ Plug 'jparise/vim-graphql'
 
 " Language support ~ Go
 Plug 'ray-x/go.nvim'
+
+" -- TODO: This can probably run through null-ls too?
 autocmd BufWritePre *.go :silent! lua require('go.format').gofmt()
 
-" Language support ~ Front-End
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'maxmellon/vim-jsx-pretty'
-
-" coc extensions
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-eslint']
+" Language support ~ JavaScript
+"Plug 'pangloss/vim-javascript'
+"Plug 'leafgarland/typescript-vim'
+"Plug 'maxmellon/vim-jsx-pretty'
+"
+" Language support - TypeScript
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
 " Initialize plugin system
 call plug#end()
@@ -65,12 +74,21 @@ call plug#end()
 
 " Configure lsp
 lua << EOF
-require'lspconfig'.elixirls.setup{
-  cmd = { "/Users/tiemen/Development/elixir-ls/release/language_server.sh" };
-}
+
+local lspconfig = require('lspconfig')
+
+-- TODO: Elixir language server
+-- lspconfig.elixirls.setup{
+  -- cmd = { "/Users/tiemen/Development/elixir-ls/release/language_server.sh" };
+-- }
 
 -- configure Go
-require 'lspconfig'.gopls.setup{}
+lspconfig.gopls.setup{}
+
+-- Configure eslint / prettier
+require('lsp'):setup()
+-- END Configure eslint / prettier
+
 require('go').setup()
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
@@ -92,6 +110,9 @@ cmp.setup({
     { name = 'buffer' },
   })
 })
+
+require('lualine').setup{}
+
 EOF
 
 filetype plugin indent on
@@ -99,7 +120,8 @@ filetype plugin indent on
 " Setup theming
 set encoding=utf-8
 syntax on
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme tokyonight
 set noshowmode
 set cursorline
 
@@ -168,11 +190,6 @@ let g:qfenter_keymap.topen = ['<C-t>']
 
 " Mark the 80 chars line
 set colorcolumn=80
-
-" Gruvbox + Powerline
-let g:airline_theme='gruvbox'
-let g:airline_powerline_fonts = 1
-set t_Co=256
 
 " Elixir preferences
 let g:mix_format_on_save = 1
