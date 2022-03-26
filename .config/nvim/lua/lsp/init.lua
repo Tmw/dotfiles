@@ -8,6 +8,7 @@ local Module = {
   servers = {
     'eslint',
     'tsserver',
+    'gopls'
   }
 }
 

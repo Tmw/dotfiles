@@ -43,25 +43,11 @@ Plug 'mhinz/vim-mix-format'
 " Language support ~ Rust
 Plug 'rust-lang/rust.vim'
 
-" Language support ~ Swift
-Plug 'toyamarinyon/vim-swift'
-
 " Language support ~ Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 " Lanuage support ~ GraphQL
 Plug 'jparise/vim-graphql'
-
-" Language support ~ Go
-Plug 'ray-x/go.nvim'
-
-" -- TODO: This can probably run through null-ls too?
-autocmd BufWritePre *.go :silent! lua require('go.format').gofmt()
-
-" Language support ~ JavaScript
-"Plug 'pangloss/vim-javascript'
-"Plug 'leafgarland/typescript-vim'
-"Plug 'maxmellon/vim-jsx-pretty'
 "
 " Language support - TypeScript
 Plug 'williamboman/nvim-lsp-installer'
@@ -82,14 +68,10 @@ local lspconfig = require('lspconfig')
   -- cmd = { "/Users/tiemen/Development/elixir-ls/release/language_server.sh" };
 -- }
 
--- configure Go
-lspconfig.gopls.setup{}
-
 -- Configure eslint / prettier
 require('lsp'):setup()
 -- END Configure eslint / prettier
 
-require('go').setup()
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
   sync_install = false,
