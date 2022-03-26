@@ -8,6 +8,9 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
+
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'scrooloose/nerdtree'
@@ -86,13 +89,56 @@ require'nvim-treesitter.configs'.setup {
 
 
 local cmp = require('cmp')
+-- monkey patch the cmp.mapping with next / previous item
+cmp.mapping.select_next_item = function()
+  return function(fallback)
+    if cmp.visible() then
+      cmp.select_next_item()
+    else
+      fallback()
+    end
+  end
+end
+
+cmp.mapping.select_prev_item = function()
+  return function(fallback)
+    if cmp.visible() then
+      cmp.select_prev_item()
+    else
+      fallback()
+    end
+  end
+end
+
+local cmp_select_next_suggestion = function(fallback)
+end
 cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+
+  mapping = {
+    -- using return key or CTRL+Y to accept a completion
+    ["<cr>"] = cmp.mapping.confirm(),
+    ["<C-y>"] = cmp.mapping.confirm(),
+
+    -- using tab key or CTRL + J to select next item in the list
+    ["<Tab>"] = cmp.mapping.select_next_item(),
+    ["<C-j>"] = cmp.mapping.select_next_item(),
+
+    -- using shift + tab key or CTRL + K to select next item in the list
+    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+    ["<C-k>"] = cmp.mapping.select_prev_item(),
+  },
+
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+    { name = 'vsnip'},
     { name = 'buffer' },
   })
 })
-
 require('lualine').setup{}
 
 EOF

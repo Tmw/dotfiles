@@ -4,8 +4,6 @@ local Module = {
     -- formatting using prettier with prettierd
     null_ls.builtins.formatting.prettierd,
     null_ls.builtins.formatting.gofmt,
-
-    -- more?
   }
 }
 
