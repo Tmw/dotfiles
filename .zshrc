@@ -22,7 +22,7 @@ alias dev='cd ~/Development'
 alias rake='noglob rake'
 alias bundle='noglob bundle'
 alias vim='nvim'
-alias vimtweak='nvim ~/.config/nvim/init.vim'
+alias vimtweak='cd $HOME/.config/nvim && nvim .'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # set locales
