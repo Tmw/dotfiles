@@ -21,6 +21,7 @@ brew "watchman"
 brew "fd"
 brew "tig"
 brew "rustup"
+brew "glow"
 
 # Install GUI tools (Cask)
 cask "spotify"
