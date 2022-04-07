@@ -22,6 +22,7 @@ brew "fd"
 brew "tig"
 brew "rustup"
 brew "glow"
+brew "ngrok"
 
 # Install GUI tools (Cask)
 cask "spotify"
