@@ -39,3 +39,4 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 
 # load cargo env
 # source $HOME/.cargo/env
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
