@@ -21,32 +21,6 @@ dotfiles commit -m 'what changed'
 dotfiles push origin master
 ```
 
-## Manual setting up
-
-**Inside Brave: install plugins**
-
-- 1PasswordX
-- Apollo Client Developer Tools
-- React Developer Tools
-- Reeder
-
-**Apps from Mac App Store**
-
-- Xcode
-- Giphy capture
-- Bear
-- Unsplash Wallpapers
-
-**Keypairs & Configs**
-
-- Keypair lives in 1Password (Public Keys). Need to go in `~/.ssh`
-- AWS configs live in 1Password (AWS Config). Need to go in `~/.aws`
-
-**Inside VIM (CoC plugins)**
-
-- `:CocInstall coc-elixir`
-- `:call mkdp#util#install()`
-
 **Patched Fonts**
 
 - https://github.com/ryanoasis/nerd-fonts/releases
