@@ -1,4 +1,6 @@
-# If you come from bash you might have to change your $PATH.
+# enable some vim bindings on bash 
+# eg. ESC + b / ESC + w to jump between words
+set -o vi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -25,6 +27,7 @@ alias bundle='noglob bundle'
 alias lvim='/Users/tiemenwaterreus/.local/bin/lvim'
 alias vim='lvim'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias lg='lazygit'
 
 # set locales
 export LC_CTYPE=en_US.UTF-8
