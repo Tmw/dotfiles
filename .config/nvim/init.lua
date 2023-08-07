@@ -471,3 +471,4 @@ cmp.setup {
 vim.cmd.colorscheme("catppuccin-mocha")
 vim.o.cursorline = true
 vim.opt.colorcolumn = { 80 }
+vim.opt.splitright = true
