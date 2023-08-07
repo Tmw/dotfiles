@@ -472,3 +472,15 @@ vim.cmd.colorscheme("catppuccin-mocha")
 vim.o.cursorline = true
 vim.opt.colorcolumn = { 80 }
 vim.opt.splitright = true
+
+-- mapping toggling comment to CTRL-/
+-- by re-sending `gcc` or `gc` commands back to vim.
+-- far from ideal, but for now it works.
+
+vim.keymap.set({ 'i', 'n' }, '<C-_>', function()
+  vim.api.nvim_feedkeys('gcc', 'v', true)
+end)
+
+vim.keymap.set('v', '<C-_>', function()
+  vim.api.nvim_feedkeys('gc', 'v', true)
+end)
