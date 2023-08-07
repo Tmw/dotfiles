@@ -28,6 +28,7 @@ key_bindings:
   - { key: Key7,  mods: Command,       chars: "\x01\x37" }
   - { key: Key8,  mods: Command,       chars: "\x01\x38" }
   - { key: Key9,  mods: Command,       chars: "\x01\x39" }
+  - { key: Slash, mods: Control,       chars: "\x1f"     }
 
   # Command+K sends CTRL+A K which in tmux is mapped to clear pane
   - { key: K,     mods: Command,       chars: "\x01\x4b" }
