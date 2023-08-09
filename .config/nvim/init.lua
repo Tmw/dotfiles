@@ -472,7 +472,25 @@ cmp.setup {
 vim.cmd.colorscheme("catppuccin-mocha")
 vim.o.cursorline = true
 vim.opt.colorcolumn = { 80 }
+
+-- open new splits to the right
 vim.opt.splitright = true
+
+-- enable "global" statusline,
+-- statusline spanning underneath multiple splits
+vim.opt.laststatus = 3
+
+-- no need to show the mode twice as its
+-- already in the statusline
+vim.opt.showmode = false;
+
+-- re-read the file if updated outside of vim
+vim.opt.autoread = true;
+
+-- Show modified indicator and filename tail in winbar
+-- TODO: use highlights to make it more dim.
+-- TODO: Probably show directories but truncated
+vim.opt.winbar = "%=%m %t"
 
 -- mapping toggling comment to CTRL-/
 -- by re-sending `gcc` or `gc` commands back to vim.
