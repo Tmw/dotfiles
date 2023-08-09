@@ -167,6 +167,7 @@ vim.o.hlsearch = false
 -- Enable mouse mode
 vim.o.mouse = 'a'
 vim.o.relativenumber = true
+vim.o.number = true
 vim.o.wrap = false
 
 -- Sync clipboard between OS and Neovim.
