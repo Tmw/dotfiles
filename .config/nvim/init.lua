@@ -476,6 +476,10 @@ vim.opt.colorcolumn = { 80 }
 -- open new splits to the right
 vim.opt.splitright = true
 
+-- dealing with tabs
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+
 -- enable "global" statusline,
 -- statusline spanning underneath multiple splits
 vim.opt.laststatus = 3
