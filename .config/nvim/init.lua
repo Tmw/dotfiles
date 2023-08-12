@@ -496,14 +496,23 @@ vim.opt.autoread = true;
 -- TODO: Probably show directories but truncated
 vim.opt.winbar = "%=%m %t"
 
--- mapping toggling comment to CTRL-/
--- by re-sending `gcc` or `gc` commands back to vim.
--- far from ideal, but for now it works.
+-- binding CTRL+/ to always make linewise comments,
+-- while handling being in the different modes.
+vim.keymap.set({ 'n', 'v', 'i', 'x' }, '<C-_>', function()
+  local mode = vim.api.nvim_get_mode().mode
+  local comment = require("Comment.api")
 
-vim.keymap.set({ 'i', 'n' }, '<C-_>', function()
-  vim.api.nvim_feedkeys('gcc', 'v', true)
-end)
+  local esc = vim.api.nvim_replace_termcodes(
+    '<ESC>', true, false, true
+  )
 
-vim.keymap.set('v', '<C-_>', function()
-  vim.api.nvim_feedkeys('gc', 'v', true)
+  if mode == "n" or mode == "i" then
+    comment.toggle.linewise.current()
+  elseif mode == "v" then
+    vim.api.nvim_feedkeys(esc, 'nx', false)
+    comment.toggle.linewise(vim.fn.visualmode())
+  elseif mode == "V" then
+    vim.api.nvim_feedkeys(esc, 'nx', false)
+    comment.toggle.linewise(vim.fn.visualmode())
+  end
 end)
