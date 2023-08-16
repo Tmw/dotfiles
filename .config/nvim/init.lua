@@ -516,3 +516,6 @@ vim.keymap.set({ 'n', 'v', 'i', 'x' }, '<C-_>', function()
     comment.toggle.linewise(vim.fn.visualmode())
   end
 end)
+
+vim.opt.foldmethod = "indent"
+vim.opt.foldlevel = 99
