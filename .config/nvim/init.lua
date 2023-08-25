@@ -269,7 +269,8 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim', 'jsonnet' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'javascript', 'vimdoc', 'vim',
+    'jsonnet' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = false,
@@ -340,6 +341,17 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
+  -- TODO: setup eslint autoformatting...
+  -- if client.name == "eslint" then
+  --   client.server_capabilities.documentFormattingProvider = true
+  --
+  --   vim.api.nvim_create_autocmd('BufWritePre', {
+  --     callback = function()
+  --       vim.lsp.buf.format({ async = true })
+  --     end,
+  --   })
+  -- end
+
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
@@ -394,6 +406,7 @@ local servers = {
   clangd = {},
   gopls = {},
   tsserver = {},
+  eslint = {},
   jsonnet_ls = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
 
@@ -487,13 +500,15 @@ vim.opt.splitright = true
 
 -- dealing with tabs
 vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 
 -- enable "global" statusline,
 -- statusline spanning underneath multiple splits
 vim.opt.laststatus = 3
 
--- no need to show the mode twice as its
+-- no need to show the mode twice as it's
 -- already in the statusline
 vim.opt.showmode = false;
 
@@ -526,5 +541,6 @@ vim.keymap.set({ 'n', 'v', 'i', 'x' }, '<C-_>', function()
   end
 end)
 
+-- dealing with folds
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
