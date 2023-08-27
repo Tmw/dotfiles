@@ -36,6 +36,19 @@ require('lazy').setup({
       'folke/neodev.nvim',
     },
   },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = { "mason.nvim" },
+    opts = function()
+      local formatting = require("null-ls").builtins.formatting
+      return {
+        sources = {
+          formatting.prettierd,
+        },
+      }
+    end,
+  },
 
   {
     -- Autocompletion
@@ -160,7 +173,12 @@ require('lazy').setup({
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
-
+vim.diagnostic.config({
+  float = {
+    source = 'always',
+    -- border = border
+  },
+})
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -341,17 +359,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
-  -- TODO: setup eslint autoformatting...
-  -- if client.name == "eslint" then
-  --   client.server_capabilities.documentFormattingProvider = true
-  --
-  --   vim.api.nvim_create_autocmd('BufWritePre', {
-  --     callback = function()
-  --       vim.lsp.buf.format({ async = true })
-  --     end,
-  --   })
-  -- end
-
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
