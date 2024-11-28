@@ -284,6 +284,8 @@ require('telescope').setup {
                 ['<C-d>'] = false,
                 ['<C-j>'] = require('telescope.actions').move_selection_next,
                 ['<C-k>'] = require('telescope.actions').move_selection_previous,
+                ['<C-q>'] = require('telescope.actions').delete_buffer,
+                ['<C-l>'] = require('telescope.actions').send_to_qflist + require('telescope.actions').open_qflist,
             },
         },
     },
