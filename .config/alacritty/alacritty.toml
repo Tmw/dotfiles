@@ -1,4 +1,3 @@
-import = ["/Users/tiemenwaterreus/.config/alacritty/catppuccin-mocha.toml"]
 
 [env]
 TERM = "xterm-256color"
@@ -119,10 +118,15 @@ history = 50000
 [selection]
 save_to_clipboard = false
 
-[shell]
+[terminal.shell]
 args = ["-l", "-c", "tmux"]
 program = "/bin/zsh"
 
 [window.dimensions]
 columns = 133
 lines = 44
+
+[general]
+import = ["/Users/tiemenwaterreus/.config/alacritty/catppuccin-mocha.toml"]
+
+[terminal]
