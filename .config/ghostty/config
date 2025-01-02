@@ -1,0 +1,44 @@
+##########################
+# Overall ghostty config #
+##########################
+theme = catppuccin-mocha
+font-family = "JetBrainsMono Nerd Font Mono"
+font-size = 20
+
+window-height=36
+window-width=140
+
+# jumping to start of line with a single cmd+left
+keybind = cmd+left=text:\x01\x01
+command = "/bin/zsh -l -c tmux"
+
+# clearing the screen cmd+k
+keybind = cmd+k=text:\x01K 
+
+#################
+# tmux keybinds #
+#################
+
+# tmux bindings (creating splits and tabs)
+# ----------------------------------------
+#  creating vertical split (cmd+d)
+keybind = cmd+d=text:\x01%
+
+# create horizontal split (cmd+shift+d)
+keybind = cmd+shift+d=text:\x01"
+
+# create a new tab (pane) (cmd+t)
+keybind = cmd+t=text:\x01c
+
+# Jumping between tmux tabs
+keybind = cmd+1=text:\x011
+keybind = cmd+2=text:\x012
+keybind = cmd+3=text:\x013
+keybind = cmd+4=text:\x014
+keybind = cmd+5=text:\x015
+keybind = cmd+6=text:\x016
+keybind = cmd+7=text:\x017
+keybind = cmd+8=text:\x018
+keybind = cmd+9=text:\x019
+
+
