@@ -32,8 +32,8 @@ vim.opt.laststatus = 3
 vim.opt.mouse = "a"
 
 -- dealing with folds
-vim.opt.foldmethod = "indent"
-vim.opt.foldlevel = 99
+vim.o.foldmethod = "indent"
+vim.o.foldlevel = 99
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
