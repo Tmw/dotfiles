@@ -24,6 +24,8 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 
+vim.o.wrap = false
+
 -- enable "global" statusline,
 -- statusline spanning underneath multiple splits
 vim.opt.laststatus = 3
