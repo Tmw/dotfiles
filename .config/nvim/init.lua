@@ -17,6 +17,7 @@ vim.g.have_nerd_font = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
+vim.o.number = true
 vim.opt.colorcolumn = { 80 }
 
 vim.opt.expandtab = true
