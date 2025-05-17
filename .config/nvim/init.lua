@@ -609,19 +609,27 @@ require("lazy").setup({
 		opts = {
 			notify_on_error = true,
 			format_on_save = function(bufnr)
-				-- Disable "format_on_save lsp_fallback" for languages that don't
-				-- have a well standardized coding style. You can add additional
-				-- languages here or re-enable it for the disabled ones.
-				local disable_filetypes = { c = true, cpp = true }
-				local lsp_format_opt
-				if disable_filetypes[vim.bo[bufnr].filetype] then
-					lsp_format_opt = "never"
-				else
-					lsp_format_opt = "fallback"
+				-- early return if autoformatting is disabled either globally
+				-- or just for the current buffer.
+				if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+					return
 				end
+
+				-- for some filetypes we do not want auto formatting on save
+				-- but still have the option to format manually.
+				local disabled_autoformat_filetypes = {
+					c = true,
+					cpp = true,
+					sql = true,
+				}
+
+				if disabled_autoformat_filetypes[vim.bo[bufnr].filetype] then
+					return
+				end
+
 				return {
 					timeout_ms = 500,
-					lsp_format = lsp_format_opt,
+					lsp_format = "fallback",
 				}
 			end,
 			formatters_by_ft = {
@@ -932,6 +940,28 @@ require("neo-tree").setup({
 })
 
 vim.keymap.set("n", "<C-b>", ":Neotree toggle left<cr>", { silent = true })
+
+local format_disable_opts = {
+	desc = "Disable autoformat-on-save",
+	bang = true,
+}
+
+vim.api.nvim_create_user_command("FormatDisable", function(args)
+	if args.bang then
+		vim.g.disable_autoformat = true
+	else
+		vim.b.disable_autoformat = true
+	end
+end, format_disable_opts)
+
+local format_enable_opts = {
+	desc = "Enable autoformat-on-save",
+	bang = false,
+}
+vim.api.nvim_create_user_command("FormatEnable", function()
+	vim.b.disable_autoformat = false
+	vim.g.disable_autoformat = false
+end, format_enable_opts)
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
