@@ -921,6 +921,13 @@ require("neo-tree").setup({
 		winbar = true,
 	},
 
+	default_component_configs = {
+		file_size = { enabled = false },
+		created = { enabled = false },
+		type = { enabled = false },
+		last_modified = { enabled = false },
+	},
+
 	filesystem = {
 		filtered_items = {
 			visible = true,
