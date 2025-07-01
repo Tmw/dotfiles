@@ -328,6 +328,8 @@ require("lazy").setup({
 								+ require("telescope.actions").open_qflist,
 						},
 					},
+
+					path_display = { "smart" },
 				},
 				-- pickers = {}
 				extensions = {
