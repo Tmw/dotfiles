@@ -31,14 +31,12 @@ keybind = cmd+shift+d=text:\x01"
 keybind = cmd+t=text:\x01c
 
 # Jumping between tmux tabs
-keybind = cmd+1=text:\x011
-keybind = cmd+2=text:\x012
-keybind = cmd+3=text:\x013
-keybind = cmd+4=text:\x014
-keybind = cmd+5=text:\x015
-keybind = cmd+6=text:\x016
-keybind = cmd+7=text:\x017
-keybind = cmd+8=text:\x018
-keybind = cmd+9=text:\x019
-
-
+keybind = cmd+digit_1=text:\x011
+keybind = cmd+digit_2=text:\x012
+keybind = cmd+digit_3=text:\x013
+keybind = cmd+digit_4=text:\x014
+keybind = cmd+digit_5=text:\x015
+keybind = cmd+digit_6=text:\x016
+keybind = cmd+digit_7=text:\x017
+keybind = cmd+digit_8=text:\x018
+keybind = cmd+digit_9=text:\x019
