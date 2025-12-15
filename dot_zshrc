@@ -24,8 +24,7 @@ alias dc="docker-compose"
 alias dev='cd ~/Development'
 alias rake='noglob rake'
 alias bundle='noglob bundle'
-alias lvim='/Users/tiemenwaterreus/.local/bin/lvim'
-alias vim='lvim'
+alias vim='nvim'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias lg='lazygit'
 
