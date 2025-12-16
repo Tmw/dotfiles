@@ -133,7 +133,6 @@ ulimit -n 1024
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="$PATH:$HOME/scripts/"
-export PATH="$PATH:$HOME/go/bin"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
