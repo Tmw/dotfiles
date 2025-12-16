@@ -14,3 +14,6 @@
   l = log --oneline --graph -20 --decorate
 [init]
 	defaultBranch = main
+
+[url "ssh://git@github.com/"]
+	insteadOf = "https://github.com/"
