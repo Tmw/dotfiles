@@ -38,7 +38,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -82,11 +82,7 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='vim'
-fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -94,6 +90,34 @@ fi
 # load oh-my-zsh, its plugins and completions
 source $ZSH/oh-my-zsh.sh
 fpath=(/usr/local/share/zsh-completions $fpath)
+
+# Smarter, stable window title (project-aware)
+function _project_title() {
+  local dir="$PWD"
+  local root="$dir"
+
+  while [[ "$root" != "/" && "$root" != "$HOME" ]]; do
+    if [[ -d "$root/.git" ]]; then
+      break
+    fi
+    root="${root:h}"
+  done
+
+  local title
+  if [[ -d "$root/.git" ]]; then
+    title="${root:t}"
+  else
+    title="${PWD:t}"
+  fi
+
+  if [[ -n "$TMUX" ]]; then
+    tmux rename-window "$title"
+  fi
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook chpwd _project_title
+_project_title
 
 alias dev='cd ~/Development'
 alias vim='nvim'
@@ -115,6 +139,6 @@ ulimit -n 1024
 
 . /opt/homebrew/etc/profile.d/z.sh
 
-export PATH="$PATH:/Users/tiemenwaterreus/scripts/"
-export PATH="$PATH:/Users/tiemenwaterreus/go/bin"
+export PATH="$PATH:/Users/tiemen/scripts/"
+export PATH="$PATH:/Users/tiemen/go/bin"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
