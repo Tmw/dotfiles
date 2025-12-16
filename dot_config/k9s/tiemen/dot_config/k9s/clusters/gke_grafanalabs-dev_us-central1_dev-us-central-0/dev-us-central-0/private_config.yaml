@@ -1,0 +1,13 @@
+k9s:
+  cluster: gke_grafanalabs-dev_us-central1_dev-us-central-0
+  namespace:
+    active: grafana-com
+    lockFavorites: false
+    favorites:
+      - grafana-com
+      - default
+  view:
+    active: v1/pods grafana-com
+  featureGates:
+    nodeShell: false
+  proxy: null
