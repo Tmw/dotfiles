@@ -4,3 +4,5 @@
 node_modules/
 *.log
 Brewfile.lock.json
+.config/k9s
+

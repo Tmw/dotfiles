@@ -1,6 +1,7 @@
 [user]
 	name = Tiemen Waterreus
 	email = tiemen@tiemenwaterreus.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILo1MfF6k8av5oyF2jmW94x7u/3lHranbYB8Rt9R1IDr
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
@@ -17,3 +18,9 @@
 
 [url "ssh://git@github.com/"]
 	insteadOf = "https://github.com/"
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
